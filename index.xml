@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on peakbook&#39;s weblog </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://peakbook.github.io/index.xml/</link>
+    
+    <author>peakbook</author>
+    <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
+    <updated>Sun, 08 Feb 2015 18:52:09 JST</updated>
+    
+    <item>
+      <title>HugoでGithubPages</title>
+      <link>http://peakbook.github.io/post/first/</link>
+      <pubDate>Sun, 08 Feb 2015 18:52:09 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/first/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gohugo.io/&#34;&gt;HUGO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gizak/nofancy&#34;&gt;https://github.com/gizak/nofancy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://peakbook.github.io/about/</link>
+      <pubDate>Sun, 01 Feb 2015 18:46:53 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;&lt;img src=&#34;https://avatars3.githubusercontent.com/u/443863?v=3&amp;amp;s=50&#34; alt=&#34;icon&#34; /&gt;
+ PeakbooK&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;m a doctral student somewhere in Japan.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Research Interests&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Soft Computing ( Neural Networks, Evolutionary Computation, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Languages&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Japanese, Kansai dialect (Native), Japanese English&lt;/li&gt;
+&lt;li&gt;c, c#, julia, python &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Contact&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/peakbook&#34;&gt;@peakbook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
