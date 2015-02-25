@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Posts on peakbook&#39;s weblog </title>
+      <title>Julia on peakbook&#39;s weblog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://peakbook.github.io/post/index.xml/</link>
+    <link>http://peakbook.github.io/tags/julia/index.xml/</link>
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
@@ -28,19 +28,6 @@
 &lt;p&gt;例では，多項式の次数を$M$，L2正則化の係数を$\lambda=10^{\lambda_p}$としてます．&lt;br /&gt;
 コードは&lt;a href=&#34;http://nbviewer.ipython.org/github/peakbook/julia_notebook/blob/master/interact/fitting.ipynb&#34;&gt;こちら&lt;/a&gt;．
 nbviewerではもちろんインタラクティブにはならないので悪しからず．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>HugoでGithubPages</title>
-      <link>http://peakbook.github.io/post/first/</link>
-      <pubDate>Sun, 08 Feb 2015 18:52:09 JST</pubDate>
-      <author>peakbook</author>
-      <guid>http://peakbook.github.io/post/first/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gohugo.io/&#34;&gt;HUGO&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gizak/nofancy&#34;&gt;https://github.com/gizak/nofancy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

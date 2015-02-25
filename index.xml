@@ -7,7 +7,29 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Sun, 08 Feb 2015 18:52:09 JST</updated>
+    <updated>Wed, 25 Feb 2015 11:43:17 JST</updated>
+    
+    <item>
+      <title>Interact.jlを使ってみる</title>
+      <link>http://peakbook.github.io/post/20150225_interactjl/</link>
+      <pubDate>Wed, 25 Feb 2015 11:43:17 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150225_interactjl/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/JuliaLang/Interact.jl&#34;&gt;Interact.jl&lt;/a&gt;を使って，
+多項式曲線フィッティングをインタラクティブにしてみた．&lt;/p&gt;
+
+&lt;div style=&#34;text-align:center&#34;&gt;
+&lt;img src=/images/fitting.gif&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Gadflyと組み合わせると，グラフがグリグリ動いてとても楽しい．&lt;br /&gt;
+見た目もわかりやすくて，非常に良いですね．&lt;/p&gt;
+
+&lt;p&gt;例では，多項式の次数を$M$，L2正則化の係数を$\lambda=10^{\lambda_p}$としてます．&lt;br /&gt;
+コードは&lt;a href=&#34;http://nbviewer.ipython.org/github/peakbook/julia_notebook/blob/master/interact/fitting.ipynb&#34;&gt;こちら&lt;/a&gt;．
+nbviewerではもちろんインタラクティブにはならないので悪しからず．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>HugoでGithubPages</title>

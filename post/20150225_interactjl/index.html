@@ -3,8 +3,8 @@
 
   
   <meta charset="utf-8">
-  <title>Posts</title>
-  <meta name="description" content="Posts">
+  <title>Interact.jlを使ってみる</title>
+  <meta name="description" content="Interact.jlを使ってみる">
   <meta name="author" content="peakbook">
 
   
@@ -54,58 +54,45 @@
 </nav>
 
 
-
-<div class="container away">
+<div class="container post-wrapper">
   <div class="row">
 	<div class="eight columns offset-by-two">
-	  <p style="margin-bottom:1em;font-weight:bold;color:#333">Posts:</p>
+	  <div id="post-title">
+		<p class="footnote">
+		  
+		  <time class="">2015-02-25</time>
+		  
+		  
+		  |
+		  
+		  
+		  tags:<a href="http://peakbook.github.io/tags/julia">julia</a> 
+		  
 
-	  <ul class="posts">
-		
-		
-		
-		<li>
-		  <a href="http://peakbook.github.io/post/20150225_interactjl/">Interact.jlを使ってみる</a>
+		  
 
-		  <p class="footnote">
-			submitted <time datetime="2015-02-25T11:43:17&#43;09:00" class="pull-right post-list timeago">2015-02-25T11:43:17&#43;09:00</time>
+		  
 
-			
-			to
-			
+		</p>
+		<h5>Interact.jlを使ってみる</h5>
+	  </div>
 
-			
-			tags:[ <a href="http://peakbook.github.io/tags/julia">julia</a> ]
-			
+	  <div class="post">
+		<p><a href="https://github.com/JuliaLang/Interact.jl">Interact.jl</a>を使って，
+多項式曲線フィッティングをインタラクティブにしてみた．</p>
 
-			
+<div style="text-align:center">
+<img src=/images/fitting.gif>
+</div>
 
-			
+<p>Gadflyと組み合わせると，グラフがグリグリ動いてとても楽しい．<br />
+見た目もわかりやすくて，非常に良いですね．</p>
 
-		  </p>
-		</li>
-		
-		
-		
-		<li>
-		  <a href="http://peakbook.github.io/post/first/">HugoでGithubPages</a>
+<p>例では，多項式の次数を$M$，L2正則化の係数を$\lambda=10^{\lambda_p}$としてます．<br />
+コードは<a href="http://nbviewer.ipython.org/github/peakbook/julia_notebook/blob/master/interact/fitting.ipynb">こちら</a>．
+nbviewerではもちろんインタラクティブにはならないので悪しからず．</p>
 
-		  <p class="footnote">
-			submitted <time datetime="2015-02-08T18:52:09&#43;09:00" class="pull-right post-list timeago">2015-02-08T18:52:09&#43;09:00</time>
-
-			
-
-			
-
-			
-
-			
-
-		  </p>
-		</li>
-		
-		
-	  </ul>
+	  </div>
 	</div>
   </div>
 </div>
