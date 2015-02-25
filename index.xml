@@ -25,7 +25,7 @@
 &lt;p&gt;Gadflyと組み合わせると，グラフがグリグリ動いてとても楽しい．&lt;br /&gt;
 見た目もわかりやすくて，非常に良いですね．&lt;/p&gt;
 
-&lt;p&gt;例では，多項式の次数を$M$，L2正則化の係数を$\lambda=10^{\lambda_p}$としてます．&lt;br /&gt;
+&lt;p&gt;例では，多項式の次数を$M$，L2正則化の係数を$\lambda=e^{-\lambda_p}$としてます．&lt;br /&gt;
 コードは&lt;a href=&#34;http://nbviewer.ipython.org/github/peakbook/julia_notebook/blob/master/interact/fitting.ipynb&#34;&gt;こちら&lt;/a&gt;．
 nbviewerではもちろんインタラクティブにはならないので悪しからず．&lt;/p&gt;
 </description>
