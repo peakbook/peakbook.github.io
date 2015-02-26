@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>SVMのデモ</title>
+  <meta name="description" content="SVMのデモ">
+  <meta name="author" content="peakbook">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="http://peakbook.github.io/css/fonts.css">
+  <link rel="stylesheet" href="http://peakbook.github.io/css/normalize.css">
+  <link rel="stylesheet" href="http://peakbook.github.io/css/skeleton.css">
+  <link rel="stylesheet" href="http://peakbook.github.io/css/custom.css">
+  <link rel="stylesheet" href="http://peakbook.github.io/css/zenburn.css">
+  <script src="http://peakbook.github.io/js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <script type="text/javascript"
+          src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+<body>
+
+<header id="menu">
+  <div class="container">
+	<span class="logo">peakbook&#39;s weblog</span>
+	<a>&#9776;</a>
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="container">
+	<div class="row">
+	  <div class="eight columns offset-by-two">
+		<ul class="">
+		  
+		  <li class="u-pull-left"> <a href="http://peakbook.github.io" class="brand" style="font-weight:bold;font-size:normal"> peakbook&#39;s weblog </a></li>
+		  <li class="u-pull-right cate"> <a href="http://peakbook.github.io/about/" class=""> About </a></li>
+		  
+		</ul>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+
+<div class="container post-wrapper">
+  <div class="row">
+	<div class="eight columns offset-by-two">
+	  <div id="post-title">
+		<p class="footnote">
+		  
+		  <time class="">2015-02-26</time>
+		  
+		  
+		  |
+		  
+		  
+		  tags:<a href="http://peakbook.github.io/tags/javascript">javascript</a> <a href="http://peakbook.github.io/tags/svm">svm</a> 
+		  
+
+		  
+
+		  
+
+		</p>
+		<h5>SVMのデモ</h5>
+	  </div>
+
+	  <div class="post">
+		<p>だいぶ昔に勉強がてら作った<a href="http://en.wikipedia.org/wiki/Support_vector_machine">SVM</a>で2クラス分類するデモを再掲．<br />
+SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは<a href="https://github.com/peakbook/js-svm">こちら</a>）．</p>
+
+<p><script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js"></script>
+<script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js"></script>
+<script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/BoxBlurFilter.js"></script>
+<script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm.js"></script>
+<script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/TrainingSignal.js"></script>
+<script src="https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm_sample.js"></script>
+<script>
+window.onload  = function(){
+    init();
+}
+</script>
+<center>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+<br><br>
+<form>
+<input type="radio" id="coord_type_a" name="coord_type" value="a" checked onChange="pointLabel_Changed()"><font color="#0000FF">■</font>
+<input type="radio" id="coord_type_b" name="coord_type" value="b" onChange="pointLabel_Changed()"><font color="#FF0000">■</font>
+<input type="button" id="button_plot" value="Plot" onclick="plotTestData()">
+<input type="button" id="button_learn" value="Learn" onclick="learning()" disabled="true">
+<input type="button" id="button_clear" value="Clear" onclick="clearCoords()">
+<br>
+Kernel<select id="kernel_type" onChange="kernelType_Changed()">
+<option value="Linear">Linear</option>
+<option value="Gaussian">Gaussian</option>
+</select>
+ $C$: <input type="number" id="param_C" min="1" max="0xFFFFFFFF" step="1" value="2000" onChange="paramC_Changed()">
+ $\gamma$: <input type="number" id="param_gamma" min="1" max="200" step="1" value="25" onChange="paramGamma_Changed()">
+</form>
+</center></p>
+
+<p><strong>つかいかた</strong></p>
+
+<ul>
+<li>枠内をクリックして適当に点を打つ （面倒な場合はPlotを押下）</li>
+<li>Learnを押す</li>
+</ul>
+
+<p>カーネル関数として，ガウシアンカーネルと線形カーネルが選べます．
+線形カーネルを設定した場合は，分離平面を描画しているので，マージン最大化の様子がご覧いただけます．<br />
+ちなみに濃い色の点は選ばれしサポートベクタです．</p>
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+	<div class="row">
+	  <div class="ten columns offset-by-two">
+		<p class="footnote">
+		  
+		  Copyleft (ɔ) peakbook All rights reversed.
+		  
+		  
+		  Find me at
+
+		  
+		  <a href="https://github.com/peakbook" >GitHub</a>
+		  
+
+		  
+
+		  
+		  <a href="https://twitter.com/peakbook">Twitter</a>
+		  
+
+		  
+
+		  
+		</p>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+<script src="http://peakbook.github.io/js/jquery.min.js" type="text/javascript"></script>
+<script src="http://peakbook.github.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#menu").click(function(){
+    $(".brand").text("HOME");
+    $(".navbar ul li").removeClass("cate");
+    $(".navbar").toggle();
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".navbar").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+

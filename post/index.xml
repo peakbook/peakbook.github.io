@@ -7,7 +7,59 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Wed, 25 Feb 2015 11:43:17 JST</updated>
+    <updated>Thu, 26 Feb 2015 21:05:21 JST</updated>
+    
+    <item>
+      <title>SVMのデモ</title>
+      <link>http://peakbook.github.io/post/20150226_svmdemo/</link>
+      <pubDate>Thu, 26 Feb 2015 21:05:21 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150226_svmdemo/</guid>
+      <description>&lt;p&gt;だいぶ昔に勉強がてら作った&lt;a href=&#34;http://en.wikipedia.org/wiki/Support_vector_machine&#34;&gt;SVM&lt;/a&gt;で2クラス分類するデモを再掲．&lt;br /&gt;
+SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは&lt;a href=&#34;https://github.com/peakbook/js-svm&#34;&gt;こちら&lt;/a&gt;）．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+window.onload  = function(){
+    init();
+}
+&lt;/script&gt;
+&lt;center&gt;
+&lt;canvas id=&#34;myCanvas&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;form&gt;
+&lt;input type=&#34;radio&#34; id=&#34;coord_type_a&#34; name=&#34;coord_type&#34; value=&#34;a&#34; checked onChange=&#34;pointLabel_Changed()&#34;&gt;&lt;font color=&#34;#0000FF&#34;&gt;■&lt;/font&gt;
+&lt;input type=&#34;radio&#34; id=&#34;coord_type_b&#34; name=&#34;coord_type&#34; value=&#34;b&#34; onChange=&#34;pointLabel_Changed()&#34;&gt;&lt;font color=&#34;#FF0000&#34;&gt;■&lt;/font&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_plot&#34; value=&#34;Plot&#34; onclick=&#34;plotTestData()&#34;&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Learn&#34; onclick=&#34;learning()&#34; disabled=&#34;true&#34;&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_clear&#34; value=&#34;Clear&#34; onclick=&#34;clearCoords()&#34;&gt;
+&lt;br&gt;
+Kernel&lt;select id=&#34;kernel_type&#34; onChange=&#34;kernelType_Changed()&#34;&gt;
+&lt;option value=&#34;Linear&#34;&gt;Linear&lt;/option&gt;
+&lt;option value=&#34;Gaussian&#34;&gt;Gaussian&lt;/option&gt;
+&lt;/select&gt;
+ $C$: &lt;input type=&#34;number&#34; id=&#34;param_C&#34; min=&#34;1&#34; max=&#34;0xFFFFFFFF&#34; step=&#34;1&#34; value=&#34;2000&#34; onChange=&#34;paramC_Changed()&#34;&gt;
+ $\gamma$: &lt;input type=&#34;number&#34; id=&#34;param_gamma&#34; min=&#34;1&#34; max=&#34;200&#34; step=&#34;1&#34; value=&#34;25&#34; onChange=&#34;paramGamma_Changed()&#34;&gt;
+&lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;つかいかた&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;枠内をクリックして適当に点を打つ （面倒な場合はPlotを押下）&lt;/li&gt;
+&lt;li&gt;Learnを押す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;カーネル関数として，ガウシアンカーネルと線形カーネルが選べます．
+線形カーネルを設定した場合は，分離平面を描画しているので，マージン最大化の様子がご覧いただけます．&lt;br /&gt;
+ちなみに濃い色の点は選ばれしサポートベクタです．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Interact.jlを使ってみる</title>
