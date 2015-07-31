@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Som on peakbook&#39;s weblog </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/tags/som/index.xml/</link>
+    
+    <author>peakbook</author>
+    <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
+    <updated>Fri, 13 Mar 2015 23:21:10 JST</updated>
+    
+    <item>
+      <title>Self-Organizing Maps</title>
+      <link>http://localhost:1313/post/20150314_som_demo/</link>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://localhost:1313/post/20150314_som_demo/</guid>
+      <description>
+
+&lt;p&gt;SOMのデモ．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som_demo.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;init()&#34; &gt;
+&lt;center&gt;
+    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;form&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
+        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
+            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
+            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;緑の領域の適当な座標を入力データとして学習させている．
+2次元座標を学習しているだけなので，あまり面白みはないが，
+ランダムな初期状態から，徐々に緑の領域を覆っていく様子が見て取れる．&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Self-organizing_map&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

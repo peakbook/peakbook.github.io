@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Kindle on peakbook&#39;s weblog </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://peakbook.github.io/tags/kindle/index.xml/</link>
+    
+    <author>peakbook</author>
+    <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
+    <updated>Mon, 29 Jun 2015 21:57:43 JST</updated>
+    
+    <item>
+      <title>Conway&#39;s game of life on Kindle</title>
+      <link>http://peakbook.github.io/post/20150629_lifegame_on_kindle/</link>
+      <pubDate>Mon, 29 Jun 2015 21:57:43 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150629_lifegame_on_kindle/</guid>
+      <description>&lt;p&gt;Kindle 3G keyboardでライフゲーム．&lt;/p&gt;
+
+&lt;div style=&#34;text-align:center&#34;&gt;
+&lt;video controls autoplay width=&#34;540&#34; height=&#34;760&#34; &gt;
+&lt;source src=&#34;/videos/kindle_life.webm&#34; &gt;
+&lt;/video&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

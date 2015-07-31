@@ -3,8 +3,8 @@
 
   
   <meta charset="utf-8">
-  <title>Support Vector Machine</title>
-  <meta name="description" content="Support Vector Machine">
+  <title>Self-Organizing Maps</title>
+  <meta name="description" content="Self-Organizing Maps">
   <meta name="author" content="peakbook">
 
   
@@ -60,13 +60,13 @@
 	  <div id="post-title">
 		<p class="footnote">
 		  
-		  <time class="">2015-02-26</time>
+		  <time class="">2015-03-13</time>
 		  
 		  
 		  |
 		  
 		  
-		  tags:<a href="http://peakbook.github.io/tags/javascript">javascript</a> <a href="http://peakbook.github.io/tags/svm">svm</a> 
+		  tags:<a href="http://peakbook.github.io/tags/neural-network">neural network</a> <a href="http://peakbook.github.io/tags/javascript">javascript</a> 
 		  
 
 		  
@@ -74,53 +74,42 @@
 		  
 
 		</p>
-		<h5>Support Vector Machine</h5>
+		<h5>Self-Organizing Maps</h5>
 	  </div>
 
 	  <div class="post">
-		<p>だいぶ昔に勉強がてら作った<a href="http://en.wikipedia.org/wiki/Support_vector_machine">SVM</a>で2クラス分類するデモを再掲．<br />
-SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは<a href="https://github.com/peakbook/js-svm">こちら</a>）．</p>
+		
 
-<p><script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/BoxBlurFilter.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/TrainingSignal.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm_sample.js"></script>
-<script>
-window.onload  = function(){
-    init();
-}
-</script>
+<p>SOMのデモ．</p>
+
+<p><script src="https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/easeljs-0.8.0.min.js"></script>
+<script src="https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som.js"></script>
+<script src="https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som_demo.js"></script>
+</head>
+<body onload="init()" >
 <center>
-<canvas id="myCanvas" width="400" height="400"></canvas>
-<br><br>
-<form>
-<input type="radio" id="coord_type_a" name="coord_type" value="a" checked onChange="pointLabel_Changed()"><font color="#0000FF">■</font>
-<input type="radio" id="coord_type_b" name="coord_type" value="b" onChange="pointLabel_Changed()"><font color="#FF0000">■</font>
-<input type="button" id="button_plot" value="Plot" onclick="plotTestData()">
-<input type="button" id="button_learn" value="Learn" onclick="learning()" disabled="true">
-<input type="button" id="button_clear" value="Clear" onclick="clearCoords()">
-<br>
-Kernel<select id="kernel_type" onChange="kernelType_Changed()">
-<option value="Linear">Linear</option>
-<option value="Gaussian">Gaussian</option>
-</select>
- $C$: <input type="number" id="param_C" min="1" max="0xFFFFFFFF" step="1" value="2000" onChange="paramC_Changed()">
- $\gamma$: <input type="number" id="param_gamma" min="1" max="200" step="1" value="25" onChange="paramGamma_Changed()">
-</form>
+    <canvas id="Field" width="400" height="400"></canvas>
+    <br>
+    <br>
+    <form>
+        <input type="button" id="button_learn" value="Start" onclick="onclick_StartStop()">
+        <input type="button" id="button_change" value="Change Signal" onclick="ChangeSignal()">
+        <select id="learning_mode" onChange="onChange_LearningMode()">
+            <option value="Batch">Batch Learning</option>
+            <option value="Online">Online Learning</option>
+        </select>
+    </form>
 </center></p>
 
-<p><strong>つかいかた</strong></p>
+<p>緑の領域の適当な座標を入力データとして学習させている．
+2次元座標を学習しているだけなので，あまり面白みはないが，
+ランダムな初期状態から，徐々に緑の領域を覆っていく様子が見て取れる．</p>
+
+<h1 id="toc_0">References</h1>
 
 <ul>
-<li>枠内をクリックして適当に点を打つ （面倒な場合はPlotを押下）</li>
-<li>Learnを押す</li>
+<li><a href="http://en.wikipedia.org/wiki/Self-organizing_map">Wikipedia</a></li>
 </ul>
-
-<p>カーネル関数として，ガウシアンカーネルと線形カーネルが選べます．
-線形カーネルを設定した場合は，分離平面を描画しているので，マージン最大化の様子がご覧いただけます．<br />
-ちなみに濃い色の点は選ばれしサポートベクタです．</p>
 
 	  </div>
 	</div>

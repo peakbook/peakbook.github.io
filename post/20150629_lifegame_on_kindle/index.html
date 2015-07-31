@@ -3,8 +3,8 @@
 
   
   <meta charset="utf-8">
-  <title>Support Vector Machine</title>
-  <meta name="description" content="Support Vector Machine">
+  <title>Conway&#39;s game of life on Kindle</title>
+  <meta name="description" content="Conway&#39;s game of life on Kindle">
   <meta name="author" content="peakbook">
 
   
@@ -60,13 +60,13 @@
 	  <div id="post-title">
 		<p class="footnote">
 		  
-		  <time class="">2015-02-26</time>
+		  <time class="">2015-06-29</time>
 		  
 		  
 		  |
 		  
 		  
-		  tags:<a href="http://peakbook.github.io/tags/javascript">javascript</a> <a href="http://peakbook.github.io/tags/svm">svm</a> 
+		  tags:<a href="http://peakbook.github.io/tags/lifegame">lifegame</a> <a href="http://peakbook.github.io/tags/kindle">kindle</a> 
 		  
 
 		  
@@ -74,53 +74,17 @@
 		  
 
 		</p>
-		<h5>Support Vector Machine</h5>
+		<h5>Conway&#39;s game of life on Kindle</h5>
 	  </div>
 
 	  <div class="post">
-		<p>だいぶ昔に勉強がてら作った<a href="http://en.wikipedia.org/wiki/Support_vector_machine">SVM</a>で2クラス分類するデモを再掲．<br />
-SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは<a href="https://github.com/peakbook/js-svm">こちら</a>）．</p>
+		<p>Kindle 3G keyboardでライフゲーム．</p>
 
-<p><script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/BoxBlurFilter.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/TrainingSignal.js"></script>
-<script src="https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm_sample.js"></script>
-<script>
-window.onload  = function(){
-    init();
-}
-</script>
-<center>
-<canvas id="myCanvas" width="400" height="400"></canvas>
-<br><br>
-<form>
-<input type="radio" id="coord_type_a" name="coord_type" value="a" checked onChange="pointLabel_Changed()"><font color="#0000FF">■</font>
-<input type="radio" id="coord_type_b" name="coord_type" value="b" onChange="pointLabel_Changed()"><font color="#FF0000">■</font>
-<input type="button" id="button_plot" value="Plot" onclick="plotTestData()">
-<input type="button" id="button_learn" value="Learn" onclick="learning()" disabled="true">
-<input type="button" id="button_clear" value="Clear" onclick="clearCoords()">
-<br>
-Kernel<select id="kernel_type" onChange="kernelType_Changed()">
-<option value="Linear">Linear</option>
-<option value="Gaussian">Gaussian</option>
-</select>
- $C$: <input type="number" id="param_C" min="1" max="0xFFFFFFFF" step="1" value="2000" onChange="paramC_Changed()">
- $\gamma$: <input type="number" id="param_gamma" min="1" max="200" step="1" value="25" onChange="paramGamma_Changed()">
-</form>
-</center></p>
-
-<p><strong>つかいかた</strong></p>
-
-<ul>
-<li>枠内をクリックして適当に点を打つ （面倒な場合はPlotを押下）</li>
-<li>Learnを押す</li>
-</ul>
-
-<p>カーネル関数として，ガウシアンカーネルと線形カーネルが選べます．
-線形カーネルを設定した場合は，分離平面を描画しているので，マージン最大化の様子がご覧いただけます．<br />
-ちなみに濃い色の点は選ばれしサポートベクタです．</p>
+<div style="text-align:center">
+<video controls autoplay width="540" height="760" >
+<source src="/videos/kindle_life.webm" >
+</video>
+</div>
 
 	  </div>
 	</div>

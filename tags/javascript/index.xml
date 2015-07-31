@@ -7,10 +7,190 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Thu, 26 Feb 2015 21:05:21 JST</updated>
+    <updated>Fri, 31 Jul 2015 16:30:33 JST</updated>
     
     <item>
-      <title>SVMのデモ</title>
+      <title>Phase-Locked Loop Neural Network</title>
+      <link>http://peakbook.github.io/post/20150731_pllnn/</link>
+      <pubDate>Fri, 31 Jul 2015 16:30:33 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150731_pllnn/</guid>
+      <description>
+
+&lt;p&gt;Phase-Locked Loop(PLL) Neural Networkによる連想記憶のシミュレーション．&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/css/rickshaw.min.css&#34;&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/random-0.26.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/rickshaw.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/oscillator.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Definition&lt;/h1&gt;
+
+&lt;div&gt;
+$$
+\frac{d \theta_i}{d t}= \Omega_i + \epsilon \sum^N_{j=1}{ s_{ij} \sin (\theta_j - \theta_i) }\\
+\Omega_i = \Omega_0 + \mathrm{randn}(0,\sigma_\Omega)\\
+$$
+&lt;/div&gt;
+
+&lt;h1 id=&#34;toc_1&#34;&gt;Simulator&lt;/h1&gt;
+
+&lt;div style=&#34;text-align: center; margin: 0 auto&#34;&gt;
+
+&lt;div style=&#34;margin: 0 auto;&#34;&gt;
+&lt;div style=&#34;display: inline-block;margin: 0 auto; width: 300px;&#34;&gt;
+&lt;div style=&#34;display: block;&#34;&gt;
+&lt;div id=&#34;pattern_r&#34; style=&#34;display: inline-block;margin: 10px 10px;height: 100px;&#34;&gt;&lt;/div&gt;
+&lt;br&gt;
+Initial Pattern&lt;br&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div style=&#34;display: block; margin: 0 auto;&#34;&gt;
+&lt;div id=&#34;pattern_0&#34; style=&#34;display: inline-block;margin: 10px 10px;height: 100px&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;pattern_1&#34; style=&#34;display: inline-block;margin: 10px 10px;height: 100px&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;pattern_2&#34; style=&#34;display: inline-block;margin: 10px 10px;height: 100px&#34;&gt;&lt;/div&gt;
+&lt;p&gt;Memory Patterns&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;display: inline-block; width: 300px;&#34;&gt;
+&lt;div id=&#34;viz&#34; style=&#34;margin: 10px 10px; height: 300px;&#34;&gt;&lt;/div&gt;
+&lt;p&gt;Associated Pattern&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style=&#34;margin: 0 auto;width: 500px;height: 150px;&#34;&gt;
+&lt;div id=&#34;y_axis&#34; style=&#34;position: absolute; width: 30px; height: 160px;&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart_order&#34; style=&#34;position: absolute; width: 300px; height: 150px; margin-left: 30px;&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;viz_phases&#34; style=&#34;position: absolute; width: 150px; height: 150px; margin-left: 350px;&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+Time Evolution of Phases
+&lt;div&gt;
+&lt;br&gt;
+Mode:
+&lt;input type=&#34;radio&#34; id=&#34;modes&#34; name=&#34;modes&#34; value=&#34;initialize&#34; checked=&#34;checked&#34; onChange=&#34;change_mode()&#34;&gt;Initialize
+&lt;input type=&#34;radio&#34; name=&#34;modes&#34; value=&#34;associate&#34; onChange=&#34;change_mode()&#34;&gt;Associate
+&lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Gen&#34; onclick=&#34;change_pattern()&#34; &gt;
+&lt;input type=&#34;button&#34; id=&#34;button_reset&#34; value=&#34;Randomize&#34; onclick=&#34;randomize()&#34; &gt;
+&lt;input type=&#34;button&#34; id=&#34;button_start&#34; value=&#34;Start&#34; onclick=&#34;start()&#34; &gt;
+&lt;br&gt;
+$\epsilon$: &lt;input type=&#34;number&#34; id=&#34;param_epsilon&#34; min=&#34;0&#34; max=&#34;10&#34; step=&#34;0.1&#34; value=&#34;1&#34; style=&#34;width: 100px;&#34; onChange=&#34;change_param();&#34; &gt;&amp;emsp;
+$\Omega_0$: &lt;input type=&#34;number&#34; id=&#34;param_omega&#34; min=&#34;0&#34; max=&#34;5&#34; step=&#34;0.1&#34; value=&#34;1&#34; style=&#34;width: 100px;&#34; onChange=&#34;change_param();&#34; &gt;&amp;emsp;
+$\sigma_\Omega$: &lt;input type=&#34;number&#34; id=&#34;param_sigma&#34; min=&#34;0&#34; max=&#34;1&#34; step=&#34;0.01&#34; value=&#34;0.01&#34; style=&#34;width: 100px;&#34; onChange=&#34;change_param(); &#34;&gt;&amp;emsp;
+$N=60$
+&lt;br&gt;
+Learning Rule for $s_{ij} $: &amp;emsp;
+&lt;input type=&#34;radio&#34; id=&#34;lmethod&#34; name=&#34;lmethod&#34; value=&#34;Hebbian&#34; checked=&#34;checked&#34; onChange=&#34;change_learning();&#34;&gt;Hebbian &amp;nbsp;
+&lt;input type=&#34;radio&#34; name=&#34;lmethod&#34; value=&#34;Projection&#34; onChange=&#34;change_learning();&#34;&gt;Projection
+&lt;br&gt; 
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;使い方など&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Start/Stopボタン押下でシミュレーションを開始/停止します．&lt;/li&gt;
+&lt;li&gt;Initializeモードで初期パターンを，Associateモードで記憶パターンを想起します．&lt;/li&gt;
+&lt;li&gt;Randomizeボタン押下で位相を乱数で初期化します．&lt;/li&gt;
+&lt;li&gt;Genボタン押下で初期パターンを適当に変更します．&lt;/li&gt;
+&lt;li&gt;初期パターンと記憶パターンはマウスクリックで変更できます．&lt;/li&gt;
+&lt;li&gt;処理が結構重いです．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;toc_3&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.izhikevich.org/publications/oscomp.htm&#34;&gt;Frank C. Hoppensteadt and Eugene M. Izhikevich, &amp;ldquo;&lt;em&gt;Oscillatory Neurocomputers With Dynamic Connectivity&lt;/em&gt;&amp;rdquo;,Physical Review Letters (1999), 82:2983-2986.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.izhikevich.org/publications/pllnn.htm&#34;&gt;Frank C. Hoppensteadt and Eugene M. Izhikevich, &amp;ldquo;&lt;em&gt;Pattern Recognition Via Synchronization in Phase-Locked Loop Neural Networks&lt;/em&gt;&amp;rdquo;, IEEE Transactions On Neural Networks (2000), 11:734-738.&lt;/a&gt;
+&lt;script type=&#34;text/javascript;version=1.7&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/main.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/master/assets/js/loader.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neural Gas</title>
+      <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
+      <description>
+
+&lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;init()&#34; &gt;
+&lt;center&gt;
+    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;form&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
+        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
+            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
+            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Neural_gas&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Self-Organizing Maps</title>
+      <link>http://peakbook.github.io/post/20150314_som_demo/</link>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150314_som_demo/</guid>
+      <description>
+
+&lt;p&gt;SOMのデモ．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/master/assets/som_demo.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;init()&#34; &gt;
+&lt;center&gt;
+    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;form&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
+        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
+            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
+            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;緑の領域の適当な座標を入力データとして学習させている．
+2次元座標を学習しているだけなので，あまり面白みはないが，
+ランダムな初期状態から，徐々に緑の領域を覆っていく様子が見て取れる．&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Self-organizing_map&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Support Vector Machine</title>
       <link>http://peakbook.github.io/post/20150226_svmdemo/</link>
       <pubDate>Thu, 26 Feb 2015 21:05:21 JST</pubDate>
       <author>peakbook</author>
