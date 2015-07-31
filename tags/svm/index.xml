@@ -18,12 +18,12 @@
       <description>&lt;p&gt;だいぶ昔に勉強がてら作った&lt;a href=&#34;http://en.wikipedia.org/wiki/Support_vector_machine&#34;&gt;SVM&lt;/a&gt;で2クラス分類するデモを再掲．&lt;br /&gt;
 SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは&lt;a href=&#34;https://github.com/peakbook/js-svm&#34;&gt;こちら&lt;/a&gt;）．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/master/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://raw.githubusercontent.com/peakbook/js-svm/master/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 window.onload  = function(){
     init();
