@@ -66,7 +66,7 @@
 		  |
 		  
 		  
-		  tags:<a href="http://peakbook.github.io/tags/ELM">ELM</a> <a href="http://peakbook.github.io/tags/neural-network">neural network</a> <a href="http://peakbook.github.io/tags/javascript">javascript</a> 
+		  tags:<a href="http://peakbook.github.io/tags/javascript">javascript</a> <a href="http://peakbook.github.io/tags/elm">elm</a> 
 		  
 
 		  
@@ -86,9 +86,16 @@
 <script type="text/javascript" src="https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/elm_demo.js"></script>
 
 <p>話題のExtreme Learning Machine(ELM)，最も基本的なものをjavascriptで実装してみた．<br />
-ELMの詳細についてはReferencesに示した文献等が参考になる．<br />
-以下，Regularized ELMによる多クラス分類のデモ．
+ELMについてはReferencesに示した文献等が参考になる．なんか色々議論があるご様子．<br />
+以下，Regularized ELMによる多クラス分類のデモ．<br />
 ソースコードは<a href="https://github.com/peakbook/js-elm">こちら</a>．</p>
+
+<script type="text/javascript">
+window.onload  = function(){
+    init();
+    onclick_random_samples();
+}
+</script>
 
 <p><center>
 <div id="canvas"></div>
@@ -102,7 +109,7 @@ ELMの詳細についてはReferencesに示した文献等が参考になる．<
 <em style="color: #3333cc;">■</em><input type="radio" name="types" value="type_c" >
 <em style="color: #b8860b;">■</em><input type="radio" name="types" value="type_d" >
 </form>
-$L$<input type="number" id="L" step="1" min="1" max="200" value="10"><br>
+$L$<input type="number" id="L" step="1" min="1" max="200" value="20"><br>
 $\alpha=$<em id="alpha_val"></em><br>
 <input type="range" id="alpha" min="0" max="14" value="10" onchange="onchange_alpha()"><br>
 Kernel<select id="kernel">
@@ -115,20 +122,14 @@ Kernel<select id="kernel">
 </select>
 </center></p>
 
-<script type="text/javascript">
-init();
-onclick_random_samples();
-</script>
-
 <h1 id="toc_0">References</h1>
 
 <ul>
-<li><a href="http://www3.ntu.edu.sg/home/egbhuang/index.html">Extreme Learning Machine</a></li>
-<li><a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=1380068">Huang et al., &ldquo;Extreme learning machine: a new learning scheme of feedforward neural networks,&rdquo; Proceedings of 2014 IEEE International Joint Conference on Neural Networks, 4, vol. 2, pp. 985–990.</a></li>
-<li><a href="http://www.sciencedirect.com/science/article/pii/S0925231206000385">Huang et al., &ldquo;Extreme learning machine: theory and applications,&rdquo; Neurocomputing, vol. 70, pp. 489-501, 2006.</a></li>
-<li><a href="http://www.sciencedirect.com/science/article/pii/S0893608014002214">Huang, Gao, et al. &ldquo;Trends in extreme learning machines: A review,&rdquo; Neural Networks 61 (2015): 32-48.</a></li>
-<li><a href="https://www.youtube.com/watch?v=HgI3sXiM4D8">Extreme Learning Machine: Learning Without iterative Tuning (video)</a></li>
-<li><a href="https://www.facebook.com/yann.lecun/posts/10152872571572143">Prof. Yann LeCun&rsquo;s post about ELM</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0925231206000385">G.B. Huang et al., <code>Extreme learning machine: theory and applications,</code> Neurocomputiong, 70(1), pp.489-501, 2006.</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0893608014002214">G. Huang et al., <code>Trends in extreme learning machines: A reveiw,</code> Neural Networks, 61, pp.32-48, 2015.</a></li>
+<li><a href="https://www.facebook.com/yann.lecun/posts/10152872571572143">Yann LeCun, What&rsquo;s so great about &ldquo;Extreme Learning Machines&rdquo;?</a></li>
+<li><a href="http://elmorigin.wix.com/originofelm">The Official Homepage on Origins of ELM</a></li>
+<li><a href="https://www.reddit.com/r/MachineLearning/comments/34y2nk">reddit</a></li>
 </ul>
 
 	  </div>

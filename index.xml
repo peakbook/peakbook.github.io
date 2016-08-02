@@ -53,6 +53,68 @@ $$
     </item>
     
     <item>
+      <title>Extreme Learning Machine</title>
+      <link>http://peakbook.github.io/post/20151228_ELM/</link>
+      <pubDate>Mon, 28 Dec 2015 22:53:13 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20151228_ELM/</guid>
+      <description>
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/elm.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/elm_demo.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;話題のExtreme Learning Machine(ELM)，最も基本的なものをjavascriptで実装してみた．&lt;br /&gt;
+ELMについてはReferencesに示した文献等が参考になる．なんか色々議論があるご様子．&lt;br /&gt;
+以下，Regularized ELMによる多クラス分類のデモ．&lt;br /&gt;
+ソースコードは&lt;a href=&#34;https://github.com/peakbook/js-elm&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+window.onload  = function(){
+    init();
+    onclick_random_samples();
+}
+&lt;/script&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;div id=&#34;canvas&#34;&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Train&#34; onclick=&#34;onclick_train()&#34;&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_clear&#34; value=&#34;Clear&#34; onclick=&#34;onclick_clear_samples()&#34;&gt;
+&lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Random&#34; onclick=&#34;onclick_random_samples()&#34;&gt;
+&lt;form id=&#34;sampleclass&#34;&gt;
+&lt;em style=&#34;color: #cc3333;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_a&#34; checked=&#34;checked&#34; &gt;
+&lt;em style=&#34;color: #33cc33;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_b&#34; &gt;
+&lt;em style=&#34;color: #3333cc;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_c&#34; &gt;
+&lt;em style=&#34;color: #b8860b;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_d&#34; &gt;
+&lt;/form&gt;
+$L$&lt;input type=&#34;number&#34; id=&#34;L&#34; step=&#34;1&#34; min=&#34;1&#34; max=&#34;200&#34; value=&#34;20&#34;&gt;&lt;br&gt;
+$\alpha=$&lt;em id=&#34;alpha_val&#34;&gt;&lt;/em&gt;&lt;br&gt;
+&lt;input type=&#34;range&#34; id=&#34;alpha&#34; min=&#34;0&#34; max=&#34;14&#34; value=&#34;10&#34; onchange=&#34;onchange_alpha()&#34;&gt;&lt;br&gt;
+Kernel&lt;select id=&#34;kernel&#34;&gt;
+&lt;option value=&#34;sigmoid&#34; selected&gt;Sigmoid&lt;/option&gt;
+&lt;option value=&#34;hardlimit&#34;&gt;HardLimit&lt;/option&gt;
+&lt;option value=&#34;hyperbolictangent&#34;&gt;HyperbolicTangent&lt;/option&gt;
+&lt;option value=&#34;multiquadric&#34;&gt;Multiquadric&lt;/option&gt;
+&lt;option value=&#34;gaussian&#34;&gt;Gaussian&lt;/option&gt;
+&lt;option value=&#34;cosine&#34;&gt;Cosine&lt;/option&gt;
+&lt;/select&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0925231206000385&#34;&gt;G.B. Huang et al., &lt;code&gt;Extreme learning machine: theory and applications,&lt;/code&gt; Neurocomputiong, 70(1), pp.489-501, 2006.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0893608014002214&#34;&gt;G. Huang et al., &lt;code&gt;Trends in extreme learning machines: A reveiw,&lt;/code&gt; Neural Networks, 61, pp.32-48, 2015.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/yann.lecun/posts/10152872571572143&#34;&gt;Yann LeCun, What&amp;rsquo;s so great about &amp;ldquo;Extreme Learning Machines&amp;rdquo;?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://elmorigin.wix.com/originofelm&#34;&gt;The Official Homepage on Origins of ELM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/MachineLearning/comments/34y2nk&#34;&gt;reddit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Phase-Locked Loop Neural Network</title>
       <link>http://peakbook.github.io/post/20150731_pllnn/</link>
       <pubDate>Fri, 31 Jul 2015 16:30:33 JST</pubDate>
@@ -180,43 +242,6 @@ if (typeof window.fx === &#39;undefined&#39;) {
     </item>
     
     <item>
-      <title>Neural Gas</title>
-      <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
-      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
-      <author>peakbook</author>
-      <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
-      <description>
-
-&lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
-
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body onload=&#34;init()&#34; &gt;
-&lt;center&gt;
-    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-    &lt;form&gt;
-        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
-        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
-        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
-            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
-            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/form&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Neural_gas&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Self-Organizing Maps</title>
       <link>http://peakbook.github.io/post/20150314_som_demo/</link>
       <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
@@ -253,6 +278,43 @@ if (typeof window.fx === &#39;undefined&#39;) {
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Self-organizing_map&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neural Gas</title>
+      <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
+      <description>
+
+&lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;init()&#34; &gt;
+&lt;center&gt;
+    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;form&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
+        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
+            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
+            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Neural_gas&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
