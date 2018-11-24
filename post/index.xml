@@ -7,12 +7,12 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Fri, 15 Jan 2016 14:44:25 JST</updated>
+    <updated>Fri, 15 Jan 2016 14:44:25 DST</updated>
     
     <item>
       <title>Regularization</title>
       <link>http://peakbook.github.io/post/20160114_Regularization/</link>
-      <pubDate>Fri, 15 Jan 2016 14:44:25 JST</pubDate>
+      <pubDate>Fri, 15 Jan 2016 14:44:25 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20160114_Regularization/</guid>
       <description>&lt;p&gt;次の最小化問題を
@@ -53,71 +53,9 @@ $$
     </item>
     
     <item>
-      <title>Extreme Learning Machine</title>
-      <link>http://peakbook.github.io/post/20151228_ELM/</link>
-      <pubDate>Mon, 28 Dec 2015 22:53:13 JST</pubDate>
-      <author>peakbook</author>
-      <guid>http://peakbook.github.io/post/20151228_ELM/</guid>
-      <description>
-
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/d3.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/elm.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/js-elm/v1.0/assets/elm_demo.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;話題のExtreme Learning Machine(ELM)，最も基本的なものをjavascriptで実装してみた．&lt;br /&gt;
-ELMについてはReferencesに示した文献等が参考になる．なんか色々議論があるご様子．&lt;br /&gt;
-以下，Regularized ELMによる多クラス分類のデモ．&lt;br /&gt;
-ソースコードは&lt;a href=&#34;https://github.com/peakbook/js-elm&#34;&gt;こちら&lt;/a&gt;．&lt;/p&gt;
-
-&lt;script type=&#34;text/javascript&#34;&gt;
-window.onload  = function(){
-    init();
-    onclick_random_samples();
-}
-&lt;/script&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;div id=&#34;canvas&#34;&gt;&lt;/div&gt;
-&lt;br&gt;
-&lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Train&#34; onclick=&#34;onclick_train()&#34;&gt;
-&lt;input type=&#34;button&#34; id=&#34;button_clear&#34; value=&#34;Clear&#34; onclick=&#34;onclick_clear_samples()&#34;&gt;
-&lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Random&#34; onclick=&#34;onclick_random_samples()&#34;&gt;
-&lt;form id=&#34;sampleclass&#34;&gt;
-&lt;em style=&#34;color: #cc3333;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_a&#34; checked=&#34;checked&#34; &gt;
-&lt;em style=&#34;color: #33cc33;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_b&#34; &gt;
-&lt;em style=&#34;color: #3333cc;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_c&#34; &gt;
-&lt;em style=&#34;color: #b8860b;&#34;&gt;■&lt;/em&gt;&lt;input type=&#34;radio&#34; name=&#34;types&#34; value=&#34;type_d&#34; &gt;
-&lt;/form&gt;
-$L$&lt;input type=&#34;number&#34; id=&#34;L&#34; step=&#34;1&#34; min=&#34;1&#34; max=&#34;200&#34; value=&#34;20&#34;&gt;&lt;br&gt;
-$\alpha=$&lt;em id=&#34;alpha_val&#34;&gt;&lt;/em&gt;&lt;br&gt;
-&lt;input type=&#34;range&#34; id=&#34;alpha&#34; min=&#34;0&#34; max=&#34;14&#34; value=&#34;10&#34; onchange=&#34;onchange_alpha()&#34;&gt;&lt;br&gt;
-Kernel&lt;select id=&#34;kernel&#34;&gt;
-&lt;option value=&#34;sigmoid&#34; selected&gt;Sigmoid&lt;/option&gt;
-&lt;option value=&#34;hardlimit&#34;&gt;HardLimit&lt;/option&gt;
-&lt;option value=&#34;hyperbolictangent&#34;&gt;HyperbolicTangent&lt;/option&gt;
-&lt;option value=&#34;multiquadric&#34;&gt;Multiquadric&lt;/option&gt;
-&lt;option value=&#34;gaussian&#34;&gt;Gaussian&lt;/option&gt;
-&lt;option value=&#34;cosine&#34;&gt;Cosine&lt;/option&gt;
-&lt;/select&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0925231206000385&#34;&gt;G.B. Huang et al., &lt;code&gt;Extreme learning machine: theory and applications,&lt;/code&gt; Neurocomputiong, 70(1), pp.489-501, 2006.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S0893608014002214&#34;&gt;G. Huang et al., &lt;code&gt;Trends in extreme learning machines: A reveiw,&lt;/code&gt; Neural Networks, 61, pp.32-48, 2015.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/yann.lecun/posts/10152872571572143&#34;&gt;Yann LeCun, What&amp;rsquo;s so great about &amp;ldquo;Extreme Learning Machines&amp;rdquo;?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://elmorigin.wix.com/originofelm&#34;&gt;The Official Homepage on Origins of ELM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/MachineLearning/comments/34y2nk&#34;&gt;reddit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Phase-Locked Loop Neural Network</title>
       <link>http://peakbook.github.io/post/20150731_pllnn/</link>
-      <pubDate>Fri, 31 Jul 2015 16:30:33 JST</pubDate>
+      <pubDate>Fri, 31 Jul 2015 16:30:33 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150731_pllnn/</guid>
       <description>
@@ -125,11 +63,11 @@ Kernel&lt;select id=&#34;kernel&#34;&gt;
 &lt;p&gt;Phase-Locked Loop(PLL) Neural Networkによる連想記憶のシミュレーション．&lt;/p&gt;
 
 &lt;p&gt;&lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.min.css&#34;&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/d3.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/random-0.26.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/random-0.26.js&#34;&gt;&lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/oscillator.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/oscillator.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Dynamics&lt;/h1&gt;
 
@@ -212,7 +150,7 @@ Learning Rule for $s_{ij} $: &amp;emsp;
 &lt;li&gt;&lt;a href=&#34;http://www.izhikevich.org/publications/pllnn.htm&#34;&gt;Frank C. Hoppensteadt and Eugene M. Izhikevich, &amp;ldquo;&lt;em&gt;Pattern Recognition Via Synchronization in Phase-Locked Loop Neural Networks&lt;/em&gt;&amp;rdquo;, IEEE Transactions On Neural Networks (2000), 11:734-738.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;script type=&#34;application/javascript;version=1.7&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/main.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;application/javascript;version=1.7&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/main.js&#34;&gt;&lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34;&gt;
 if (typeof window.fx === &#39;undefined&#39;) {
     var oldScript = document.querySelector(&#39;script[type=&#34;application/javascript;version=1.7&#34;]&#39;);
@@ -228,7 +166,7 @@ if (typeof window.fx === &#39;undefined&#39;) {
     <item>
       <title>Conway&#39;s game of life on Kindle</title>
       <link>http://peakbook.github.io/post/20150629_lifegame_on_kindle/</link>
-      <pubDate>Mon, 29 Jun 2015 21:57:43 JST</pubDate>
+      <pubDate>Mon, 29 Jun 2015 21:57:43 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150629_lifegame_on_kindle/</guid>
       <description>&lt;p&gt;Kindle 3G keyboardでライフゲーム．&lt;/p&gt;
@@ -242,18 +180,55 @@ if (typeof window.fx === &#39;undefined&#39;) {
     </item>
     
     <item>
+      <title>Neural Gas</title>
+      <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 DST</pubDate>
+      <author>peakbook</author>
+      <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
+      <description>
+
+&lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;init()&#34; &gt;
+&lt;center&gt;
+    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;form&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
+        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
+        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
+            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
+            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Neural_gas&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Self-Organizing Maps</title>
       <link>http://peakbook.github.io/post/20150314_som_demo/</link>
-      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150314_som_demo/</guid>
       <description>
 
 &lt;p&gt;SOMのデモ．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/som.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/som_demo.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/som.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/som_demo.js&#34;&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body onload=&#34;init()&#34; &gt;
 &lt;center&gt;
@@ -283,57 +258,20 @@ if (typeof window.fx === &#39;undefined&#39;) {
     </item>
     
     <item>
-      <title>Neural Gas</title>
-      <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
-      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
-      <author>peakbook</author>
-      <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
-      <description>
-
-&lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
-
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body onload=&#34;init()&#34; &gt;
-&lt;center&gt;
-    &lt;canvas id=&#34;Field&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-    &lt;form&gt;
-        &lt;input type=&#34;button&#34; id=&#34;button_learn&#34; value=&#34;Start&#34; onclick=&#34;onclick_StartStop()&#34;&gt;
-        &lt;input type=&#34;button&#34; id=&#34;button_change&#34; value=&#34;Change Signal&#34; onclick=&#34;ChangeSignal()&#34;&gt;
-        &lt;select id=&#34;learning_mode&#34; onChange=&#34;onChange_LearningMode()&#34;&gt;
-            &lt;option value=&#34;Batch&#34;&gt;Batch Learning&lt;/option&gt;
-            &lt;option value=&#34;Online&#34;&gt;Online Learning&lt;/option&gt;
-        &lt;/select&gt;
-    &lt;/form&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;References&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Neural_gas&#34;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Support Vector Machine</title>
       <link>http://peakbook.github.io/post/20150226_svmdemo/</link>
-      <pubDate>Thu, 26 Feb 2015 21:05:21 JST</pubDate>
+      <pubDate>Thu, 26 Feb 2015 21:05:21 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150226_svmdemo/</guid>
       <description>&lt;p&gt;だいぶ昔に勉強がてら作った&lt;a href=&#34;http://en.wikipedia.org/wiki/Support_vector_machine&#34;&gt;SVM&lt;/a&gt;で2クラス分類するデモを再掲．&lt;br /&gt;
 SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは&lt;a href=&#34;https://github.com/peakbook/js-svm&#34;&gt;こちら&lt;/a&gt;）．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/svm.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/svm.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 window.onload  = function(){
     init();
@@ -374,7 +312,7 @@ Kernel&lt;select id=&#34;kernel_type&#34; onChange=&#34;kernelType_Changed()&#34
     <item>
       <title>Interact.jlを使ってみる</title>
       <link>http://peakbook.github.io/post/20150225_interactjl/</link>
-      <pubDate>Wed, 25 Feb 2015 11:43:17 JST</pubDate>
+      <pubDate>Wed, 25 Feb 2015 11:43:17 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150225_interactjl/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/JuliaLang/Interact.jl&#34;&gt;Interact.jl&lt;/a&gt;を使って，
@@ -396,7 +334,7 @@ nbviewerではもちろんインタラクティブにはならないので悪し
     <item>
       <title>HugoでGithubPages</title>
       <link>http://peakbook.github.io/post/first/</link>
-      <pubDate>Sun, 08 Feb 2015 18:52:09 JST</pubDate>
+      <pubDate>Sun, 08 Feb 2015 18:52:09 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/first/</guid>
       <description>&lt;ul&gt;

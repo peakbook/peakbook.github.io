@@ -7,12 +7,12 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Fri, 31 Jul 2015 16:30:33 JST</updated>
+    <updated>Fri, 31 Jul 2015 16:30:33 DST</updated>
     
     <item>
       <title>Phase-Locked Loop Neural Network</title>
       <link>http://peakbook.github.io/post/20150731_pllnn/</link>
-      <pubDate>Fri, 31 Jul 2015 16:30:33 JST</pubDate>
+      <pubDate>Fri, 31 Jul 2015 16:30:33 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150731_pllnn/</guid>
       <description>
@@ -20,11 +20,11 @@
 &lt;p&gt;Phase-Locked Loop(PLL) Neural Networkによる連想記憶のシミュレーション．&lt;/p&gt;
 
 &lt;p&gt;&lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.min.css&#34;&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/d3.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/random-0.26.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/d3.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/numeric-1.2.6.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/random-0.26.js&#34;&gt;&lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/oscillator.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/oscillator.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;toc_0&#34;&gt;Dynamics&lt;/h1&gt;
 
@@ -107,7 +107,7 @@ Learning Rule for $s_{ij} $: &amp;emsp;
 &lt;li&gt;&lt;a href=&#34;http://www.izhikevich.org/publications/pllnn.htm&#34;&gt;Frank C. Hoppensteadt and Eugene M. Izhikevich, &amp;ldquo;&lt;em&gt;Pattern Recognition Via Synchronization in Phase-Locked Loop Neural Networks&lt;/em&gt;&amp;rdquo;, IEEE Transactions On Neural Networks (2000), 11:734-738.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;script type=&#34;application/javascript;version=1.7&#34; src=&#34;https://cdn.rawgit.com/peakbook/PLLNN/v1.0/assets/js/main.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;application/javascript;version=1.7&#34; src=&#34;https://cdn.jsdelivr.net/gh/peakbook/PLLNN@v1.0/assets/js/main.js&#34;&gt;&lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34;&gt;
 if (typeof window.fx === &#39;undefined&#39;) {
     var oldScript = document.querySelector(&#39;script[type=&#34;application/javascript;version=1.7&#34;]&#39;);
@@ -123,16 +123,16 @@ if (typeof window.fx === &#39;undefined&#39;) {
     <item>
       <title>Self-Organizing Maps</title>
       <link>http://peakbook.github.io/post/20150314_som_demo/</link>
-      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150314_som_demo/</guid>
       <description>
 
 &lt;p&gt;SOMのデモ．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/som.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/som_demo.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/som.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/som_demo.js&#34;&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body onload=&#34;init()&#34; &gt;
 &lt;center&gt;
@@ -164,16 +164,16 @@ if (typeof window.fx === &#39;undefined&#39;) {
     <item>
       <title>Neural Gas</title>
       <link>http://peakbook.github.io/post/20150314_ng_demo/</link>
-      <pubDate>Fri, 13 Mar 2015 23:21:10 JST</pubDate>
+      <pubDate>Fri, 13 Mar 2015 23:21:10 DST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150314_ng_demo/</guid>
       <description>
 
 &lt;p&gt;Neural Gasのデモ．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.rawgit.com/peakbook/neuralnets_demo/v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/easeljs-0.8.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/neuralgas.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/neuralnets_demo@v1.0/assets/neuralgas_demo.js&#34;&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body onload=&#34;init()&#34; &gt;
 &lt;center&gt;
