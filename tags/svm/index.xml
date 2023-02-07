@@ -7,23 +7,23 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Thu, 26 Feb 2015 21:05:21 DST</updated>
+    <updated>Thu, 26 Feb 2015 21:05:21 JST</updated>
     
     <item>
       <title>Support Vector Machine</title>
       <link>http://peakbook.github.io/post/20150226_svmdemo/</link>
-      <pubDate>Thu, 26 Feb 2015 21:05:21 DST</pubDate>
+      <pubDate>Thu, 26 Feb 2015 21:05:21 JST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150226_svmdemo/</guid>
       <description>&lt;p&gt;だいぶ昔に勉強がてら作った&lt;a href=&#34;http://en.wikipedia.org/wiki/Support_vector_machine&#34;&gt;SVM&lt;/a&gt;で2クラス分類するデモを再掲．&lt;br /&gt;
 SVMは自作，200行弱なのでアルゴリズムの理解にはちょうどよいかも（コードは&lt;a href=&#34;https://github.com/peakbook/js-svm&#34;&gt;こちら&lt;/a&gt;）．&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/svm.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/gh/peakbook/js-svm@v1.0/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/easeljs-0.4.2.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/movieclip-0.4.1.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/BoxBlurFilter.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/svm.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/TrainingSignal.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://cdn.rawgit.com/peakbook/js-svm/v1.0/assets/svm_sample.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
 window.onload  = function(){
     init();

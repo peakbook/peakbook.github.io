@@ -7,12 +7,12 @@
     
     <author>peakbook</author>
     <copyright>Copyleft (ɔ) peakbook All rights reversed.</copyright>
-    <updated>Fri, 15 Jan 2016 14:44:25 DST</updated>
+    <updated>Fri, 15 Jan 2016 14:44:25 JST</updated>
     
     <item>
       <title>Regularization</title>
       <link>http://peakbook.github.io/post/20160114_Regularization/</link>
-      <pubDate>Fri, 15 Jan 2016 14:44:25 DST</pubDate>
+      <pubDate>Fri, 15 Jan 2016 14:44:25 JST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20160114_Regularization/</guid>
       <description>&lt;p&gt;次の最小化問題を
@@ -55,7 +55,7 @@ $$
     <item>
       <title>Interact.jlを使ってみる</title>
       <link>http://peakbook.github.io/post/20150225_interactjl/</link>
-      <pubDate>Wed, 25 Feb 2015 11:43:17 DST</pubDate>
+      <pubDate>Wed, 25 Feb 2015 11:43:17 JST</pubDate>
       <author>peakbook</author>
       <guid>http://peakbook.github.io/post/20150225_interactjl/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/JuliaLang/Interact.jl&#34;&gt;Interact.jl&lt;/a&gt;を使って，
